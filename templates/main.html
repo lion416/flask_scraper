@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Scrolling Nav - Start Bootstrap Template</title>
+  {% import "bootstrap/wtf.html" as wtf %}
+
+  <!-- Bootstrap core CSS -->
+  <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="{{ url_for('static', filename='css/scrolling-nav.css')}}" rel="stylesheet">
+  <style type="text/css">
+    #elementTable {
+  margin:0 atuo;
+  width: 70%;
+  overflow:auto;
+}
+table.gridtable {
+  margin:0 auto;
+  width: 95%;
+  overflow: auto;
+  font-family: helverica,arial,sans-serif;
+  font-size: 14px;
+  color: #333333;
+  border-width: 1px;
+  border-color: #666666;
+  border-collapse: collapse;
+  text-align: center;
+}
+table.gridtable th{
+  border-width: 1px;
+  padding: 8px;
+  border-style: solid;
+  border-color: #666666;
+  background-color:#F6B4A5;
+}
+table.gridtable td{
+  border-width: 1px;
+  border-style: solid;
+  border-color: #666666;
+  overflow-wrap: break-word;
+}
+tr:hover {background-color: #D8DA5C}
+.loader {
+  display: inline-block;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+  </style>
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">NOMOSE</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="bg-primary text-white">
+    <div class="container text-center">
+      <h1>Welcome to Main Page</h1>
+      <p class="lead">Input the keyworks and click scrap button.</p>
+    </div>
+  </header>
+  <div class="row" style="margin-top: 30px">
+    <h4 class="col-md-6" style="text-align: right;">Username:</h4>  <h4  class="col-md-6" id="displayusername"></h4><br>
+    <h4 class="col-md-6" style="text-align: right;">Total Scraping:</h4>  <h4  class="col-md-6" id="displyscrape"></h4><br>
+    <h4 class="col-md-6" style="text-align: right;">Total ScreenShots:</h4> <h4  class="col-md-6" id="displayscreen"></h4><br>
+  </div>
+  <section id="about" style="padding-top: 50px; padding-bottom: 50px">
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+              <div class="custom-control custom-checkbox" style="margin-bottom: 20px">
+                  <input id="showchrome" type="checkbox" class="custom-control-input" checked>
+                  <label class="custom-control-label" for="showchrome"> Show chrome browser</label>
+              </div>
+<!--           	<form method="POST"> -->
+      			  <textarea name="text" rows="10" cols="101" id = "txt_command"> </textarea>
+      			  <br>
+      			  <button type = "submit" class="btn btn-lg btn-primary btn-block" id = "scrap_btn">Scrap</button>
+<!-- 			     </form> -->
+        </div>
+      </div>
+    </div>
+    <br/>
+    <div class="container" id="elementTable">
+      <table class="gridtable" id = "tableMain">
+        <thead>
+          <tr class="tableheader">
+            <th>name</th>
+            <th>value</th>
+            <th>data</th>
+          </tr>
+        </thead>
+
+        <tbody id="tablebody">
+        </tbody>
+      </table>
+    </div>
+    <div id="waitdiv" style="text-align: center; display: none;">
+      <div class="loader"></div>
+    </div>
+    
+  </section>
+
+  <section id="services" class="bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2>Services we offer</h2>
+          <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut optio velit inventore, expedita quo laboriosam possimus ea consequatur vitae, doloribus consequuntur ex. Nemo assumenda laborum vel, labore ut velit dignissimos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2>Contact us</h2>
+          <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero odio fugiat voluptatem dolor, provident officiis, id iusto! Obcaecati incidunt, qui nihil beatae magnam et repudiandae ipsa exercitationem, in, quo totam.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js')}}"></script>
+  <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="{{ url_for('static', filename='vendor/jquery-easing/jquery.easing.min.js')}}"></script>
+
+  <!-- Custom JavaScript for this theme -->
+  <script src="{{ url_for('static', filename='js/scrolling-nav.js')}}"></script>
+  <script  type="text/javascript">
+
+    var textVal;
+    var ii = 0;
+    var selectedidx = 0;
+
+    setUserInfo();
+
+    $(document).ready(function (){
+
+      // click the submit button
+      $("#scrap_btn").click(function(){
+        var checkflag = 1;
+        if(document.getElementById("showchrome").checked == true)
+          checkflag = 1;
+        else
+          checkflag = 0;
+        $("#scrap_btn").prop("disabled",true);
+        $("#showchrome").prop("disabled", true);
+        ii = 0;
+        textVal = $("#txt_command").val();
+        if (!$.trim($("#txt_command").val()))
+          alert("Input texts in the text area!");
+        else {
+          document.getElementById("waitdiv").style.display='block';
+          document.getElementById("elementTable").style.display = "none";
+          $.ajax({
+          data : {
+            text: $("#txt_command").val(),
+            showflag: checkflag
+          },
+          type : "POST",
+          url : '/scrape'
+        }).done(function(result) {
+          console.log("scrape result:", result);
+           var table = document.getElementById("tablebody");
+          table.innerHTML = "";
+
+          for (var i = 0; i < result.name.length; i ++){
+            table.innerHTML += "<tr id='tablerow"+i+"' onclick=xfunc("+i+")> <td style='max-width:200px;'> "+result.name[i]+" </td> <td style='max-width:200px;'> "+result.value[i]+" </td> <td style='max-width:200px;'> &lt;"+result.data[i]+"&gt; </td> </tr>";
+            // console.log("column:"+result.name[i]+result.data[i]);
+            // var row = table.insertRow(i);
+            // var cell1 = row.insertCell(0);
+            // var cell2 = row.insertCell(1);
+            // var cell3 = row.insertCell(2);
+            // cell1.innerHTML = result.name[i];
+            // cell2.innerHTML = result.value[i];
+            // cell3.innerHTML = "<xmp>"+result.data[i]+"</xmp>";
+            // row.onclick = xfunc+"('i')";
+          }
+          setUserInfo();
+          document.getElementById("waitdiv").style.display = "none";
+          document.getElementById("elementTable").style.display='block';
+        });
+        }
+      });
+      
+
+
+     
+    });
+
+    function xfunc(selectedidx){
+        ii++;
+        // var tableData = document.getElementById("tablerow"+selectedidx);
+        // console.log("clicked data:", tableData);
+        console.log("selected index", selectedidx);
+        document.getElementById("waitdiv").style.display='block';
+        document.getElementById("elementTable").style.display = "none";
+        // alert(tableData[0]);
+        $.ajax({
+          data : {
+            // name: tableData[0],
+            // value: tableData[1],
+            // data: tableData[2],
+            num: ii,
+            index: selectedidx
+          },
+          type : "POST",
+          url : '/receiver'
+        }).done(function(result) {
+          console.log(result);
+          if(result == "done") {
+            document.getElementById("waitdiv").style.display = "none";
+            alert("scraping have done!");
+            var table = document.getElementById("tablebody");
+            table.innerHTML = "";
+            $("#scrap_btn").prop("disabled",false);
+            $("#showchrome").prop("disabled", false);
+          }
+          else {
+            console.log("scrape result:", result);
+            var table = document.getElementById("tablebody");
+            table.innerHTML = "";
+
+            for (var i = 0; i < result.name.length; i ++){
+              table.innerHTML += "<tr onclick=xfunc("+i+")> <td style='max-width:200px;'> "+result.name[i]+" </td> <td style='max-width:200px;'>"+result.value[i]+"</td> <td style='max-width:200px;'> &lt; "+result.data[i]+" &gt; </td> </tr>";
+            }
+          }
+          document.getElementById("waitdiv").style.display = "none";
+          document.getElementById("elementTable").style.display='block';
+          setUserInfo();
+          // insert data in the table
+          // var table = document.getElementById("tableMain");
+          // //delete the data in the table
+          // document.getElementById("tableMain").deleteTHead();
+          // $("#tableMain").find("tr:not(:first)").remove();
+          // // var row = table.insertRow(1);
+          // // var cell1 = row.insertCell(0);
+          // // var cell2 = row.insertCell(1);
+          // // cell1.innerHTML = "NEW CELL1";
+          // // cell2.innerHTML = "NEW CELL2";
+          // for (var property in result.list_of_data){
+          //   console.log(result.list_of_data[property]);
+
+          //   if (property == 0){
+          //     var header = table.createTHead();
+          //     // Create an empty <tr> element and add it to the first position of <thead>:
+          //     var row = header.insertRow(0);    
+          //     // Insert a new cell (<td>) at the first position of the "new" <tr> element:
+          //     var cellH1 = row.insertCell(0);
+          //     var cellH2 = row.insertCell(1);
+          //     cellH1.innerHTML = "Name";
+          //     cellH2.innerHTML = "Value";
+          //   }
+          //   else {
+          //     var row = table.insertRow(property);
+          //     var cell1 = row.insertCell(0);
+          //     var cell2 = row.insertCell(1);
+          //     cell1.innerHTML = result.list_of_data[property];
+          //     cell2.innerHTML = result.list_of_data[property];
+          //   }
+          // }
+        });
+      
+      }
+
+      function setUserInfo() {
+        console.log("start");
+        $.ajax({
+          data : {
+          },
+          type : "POST",
+          url : '/userinfo'
+        }).done(function(result) {
+          if (result == "failed") {}
+          else {
+            $("#displayusername").prop("innerHTML", result.data[0]);
+            $("#displyscrape").prop("innerHTML", result.data[1]);
+            $("#displayscreen").prop("innerHTML", result.data[2]);
+          }
+        });
+      }
+      
+
+  </script>
+</body>
+
+</html>
